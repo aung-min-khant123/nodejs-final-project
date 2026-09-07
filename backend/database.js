@@ -37,7 +37,6 @@ db.query("CREATE DATABASE IF NOT EXISTS ecommerce", (err) => {
 
       console.log("Products table created");
 
-      // Check if products already exist
       const checkProducts = `
                 SELECT COUNT(*) AS count
                 FROM products
@@ -49,7 +48,6 @@ db.query("CREATE DATABASE IF NOT EXISTS ecommerce", (err) => {
           return;
         }
 
-        // Only insert if table is empty
         if (row[0].count == 0) {
           const insertProducts = `
                         INSERT INTO products (name, price, image_url)
